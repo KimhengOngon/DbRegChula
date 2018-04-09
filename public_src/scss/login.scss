@@ -1,0 +1,19 @@
+@import 'basis';
+
+body {
+	background: linear-gradient($color-primary, lighten($color-primary, 10%)) ;
+}
+
+.system-name {
+	color: #fff;
+	text-align: left;
+	margin-top: 50px;
+}
+
+.login-form {
+	margin-top: 30px;
+	background: #fff;
+	padding: 10px 26px 26px;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px transparentize(#000, 0.9);
+}

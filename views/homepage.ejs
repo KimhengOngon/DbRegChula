@@ -1,0 +1,50 @@
+<%- include('common/view_start', {
+  title: 'Homepage',
+  cssFiles: ['homepage'],
+  externalCSSURLs: [],
+  navBarLocation: 'homepage'
+}) %>
+
+<%- include('common/header', {
+  heading: 'Homepage',
+  subheading: 'ยินดีต้อนรับสู่หน้าแรกของ DBProject!'
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <h2>Explore</h2>
+      <a href="./student-info">Go to student info page.</a><br>
+      <a href="./manager-board">Go to manager board page.</a>
+
+      <h2>Icons</h2>
+      <div>
+        Here is a love and smile from <a href="http://getbootstrap.com/components/#glyphicons">Bootstrap's Glyphicons</a> and <a href="http://fontawesome.io/">Font Awesome</a>!
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+        <i class="fa fa-smile-o" aria-hidden="true"></i>
+      </div>
+
+      <h2>Time Displaying</h2>
+      <p>Here is a sample time displaying, using <a href="https://momentjs.com">Moment.js</a>: <samp><%= serverTime %></samp>.</p>
+      <p>It is also available on client-side JavaScript: <samp id="current_time"></samp></p>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <h2>Sample Chart</h2>
+      <canvas id="sample_chart"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-12 col-md-7">
+  <ul class="nav nav-tabs" role="tablist" id="myTab">
+    <li role="presentation" class="active"><a href="#graph-all" aria-controls="graph-all" role="tab" data-toggle="tab">นิสิตทั้งหมด</a></li>
+    <li role="presentation"><a href="#graph-st1" aria-controls="graph-st1" role="tab" data-toggle="tab">ติดโปรต่ำ</a></li>
+    <li role="presentation"><a href="#graph-st2" aria-controls="graph-st2" role="tab" data-toggle="tab">ติดโปรสูง</a></li>
+    <li role="presentation"><a href="#graph-st3" aria-controls="graph-st3" role="tab" data-toggle="tab">ไม่เรียนในเทอมนี้</a></li>
+  </ul>
+</div>
+
+<%- include('common/view_end', {
+  jsFiles: ['homepage'],
+  externalJSURLs: [],
+}) %>

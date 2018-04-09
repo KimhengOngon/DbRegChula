@@ -1,0 +1,72 @@
+<section class="search-box">
+  <h2>Search</h2>
+  <form method="GET" action="/student-info">
+
+    <div class="row">
+      <div class="col-xs-12">  
+        <div class="form-group">
+          <label for="student_id">Student ID</label>
+          <input type="text" class="form-control" id="student_id" name="sid" placeholder="e.g. 5733333333">
+        </div>
+      </div>
+      
+      <div class="col-xs-12 col-lg-6">
+        <div class="form-group">
+          <label for="student_first_name">First Name</label>
+          <input type="text" class="form-control" id="student_first_name" name="sfname" placeholder="e.g. John">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <div class="form-group">
+          <label for="student_last_name">Last Name</label>
+          <input type="text" class="form-control" id="student_last_name" name="slname" placeholder="e.g. Cena">  
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-lg-4">
+        <div class="form-group">
+          <label for="student_year">Year<br></label>
+          <input type="text" class="form-control" id="student_year" name="student_year" placeholder="e.g. 6">  
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-lg-8">
+        <div class="form-group">
+          <label for="behav_score">Behavior Score</label>
+          <div class="row">
+            <div class="col-sm-5">
+              <select class="form-control" id="score_constrain" name="score_constrain">
+                <option value=""></option>
+                <option value=">">></option>
+                <option value="<"><</option>
+                <option value="=">=</option>
+              </select>
+            </div>
+
+            <div class="col-sm-7">
+              <input type="text" class="form-control" id="behav_score" name="behav_score" placeholder="e.g. 100">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <div class="form-group">
+          <label for="mid">Major ID</label>
+          <input type="text" class="form-control" id="mid" name="mid" placeholder="e.g. 00000000001"> 
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-lg-6">
+        <div class="form-group">
+          <label for="address_en">Address</label>
+          <input type="text" class="form-control" id="address_en" name="address_en" placeholder="e.g. WWE"> 
+        </div>
+      </div>
+    </div>
+
+    <input type="hidden" name="search" value="y">
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+</section>

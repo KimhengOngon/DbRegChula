@@ -1,0 +1,73 @@
+<%- include('../common/view_start', {
+  title: 'About',
+  cssFiles: ['student-info'],
+  externalCSSURLs: ['https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css'],
+  navBarLocation: 'student-info'
+}) %>
+
+<%- include('../common/header', {
+  heading: 'Activity',
+  subheading: 'กิจกรรม',
+  breadcrumb: [
+    { text: 'Student Info', href: '/student-info' },
+    { text: sid, href: '/student-info/' + sid },
+    'Activity'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%- include('student_tab', { info: 'indiv-activity' }) %>
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Student Activity Bar Chart</h2>
+          <canvas id="chart" height="100"></canvas>
+        </div>
+      </div>
+      
+      <table class="table">
+        <caption>Activities Attended By Student ID: <%= sid %></caption>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Activity ID</th>
+            <th>Activity Name</th>
+            <th>Start Date</th>
+            <th>Award</th>
+            <th>Duration (hour)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let totalDuration = 0 %>
+          <% for (let i = 0; i < data.length; i++) { %>
+          <tr>
+            <th scope="row"><%= i + 1 %></th>
+            <td><%= data[i].aid %></td>
+            <td><%= data[i].name %></td>
+            <td><%= moment(data[i].start_date).format('DD/MM/YYYY') %></td>
+            <td><%= data[i].award %></td>
+            <td><%= data[i].duration %></td>
+            <% totalDuration += data[i].duration %>
+          </tr>
+          <% } %>
+          <td></td><td></td><td></td><td></td><td></td>
+          <td>Total: <%= totalDuration %></td>
+        </tbody>
+      </table>
+      <p>Total: <%= total %> Activit<%= total > 1 ? 'ies' : 'y' %>.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var data = <%- JSON.stringify(data) %>;
+</script>
+
+<%- include('../common/view_end', {
+  jsFiles: ['indiv-activity'],
+  externalJSURLs: [
+    'https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js',
+    'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'
+  ]
+}) %>

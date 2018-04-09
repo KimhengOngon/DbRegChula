@@ -1,0 +1,116 @@
+<%- include('common/view_start', {
+  title: 'Course',
+  cssFiles: ['common'],
+  externalCSSURLs: ['https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css'],
+  navBarLocation: 'course'
+}) %>
+
+<%- include('common/header', {
+  heading: 'Course',
+  subheading: 'รายละเอียดแต่ละวิชา',
+  breadcrumb: [
+    'Course'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="search-box">
+        <h3>Search</h3>
+        <form method="GET" action="">
+          <div class="form-group">
+              <label for="course_id">Course ID</label>
+              <input type="text" class="form-control" id="course_id" name="cid" placeholder="e.g. 2110327">
+              <label for="course_name">Course Name</label>
+              <input type="text" class="form-control" id="shortname" name="shortname" placeholder="e.g. ALGORITHM DESIGN">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      </div>
+      <% if(data.length > 0) {%>
+      <h3>Course List</h3>
+      <div class="list-group">
+          <% for(let i = 0; i < data.length; i++) {%>
+            <% if(i==0) {%>
+              <a href="#" class="list-group-item active"  data-courseno="<%= data[i].course_no %>"><%= data[i].course_no %>	<%= data[i].shortname %></a>
+            <% } else { %>
+              <a href="#" class="list-group-item" data-courseno="<%= data[i].course_no %>"><%= data[i].course_no %>	<%= data[i].shortname %></a>
+            <% } %>
+          <% } %>
+      </div>
+      <% } %>
+    </div>
+    <div class="col-md-8">
+      <div class="col-xs-12">
+        <% if(data.length > 0) {%>
+        <h1 id="title"><%= data[0].course_no %> <%= data[0].shortname %></h1>
+        <hr>
+        <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td class="course_title col-md-2"><b>วิชา</b></td>
+                <td class="course_detail" id="name_en"><%= data[0].name_en %></td>
+              </tr>
+              <tr>
+                <td class="course_title col-md-2"><b>วิชา (ไทย)</b></td>
+                <td class="course_detail" id="name_th"><%= data[0].name_th %></td>
+              </tr>
+              <tr>
+                <td class="course_title"><b>สังกัด</b></td>
+                <td class="course_detail"id="department"><%= data[0].fname_th %> (ภาควิชา<%= data[0].dname_th %>)</td>
+              </tr>
+              <tr>
+                <td class="course_title"><b>หน่วยกิต</b></td>
+                <td class="course_detail" id="creditset"><%= data[0].credit %> (<%= data[0].subcredit_1 %>-<%= data[0].subcredit_2 %>-<%= data[0].subcredit_3 %>)</td>
+              </tr>
+              <tr>
+                <td class="course_title"><b>ประเภทวิชา</b></td>
+                <% switch(data[0].special_type){
+                  case 0: %><td class="course_detail" id="special_type">ทั่วไป</td><% ; break; %>
+                  <% case '1': %><td class="course_detail" id="special_type">กลุ่มวิชามนุษยศาสตร์</td><% ; break; %>
+                  <% case '2': %><td class="course_detail" id="special_type">กลุ่มวิชาวิทยาศาสตร์คณิตศาสตร์</td><% ; break; %>
+                  <% case '3': %><td class="course_detail" id="special_type">กลุ่มวิชาสังคมศาสตร์</td><% ; break; %>
+                  <% case '4': %><td class="course_detail" id="special_type">กลุ่มวิชาสังคมศาสตร์</td><% ; break; %>
+                  <% case '5': %><td class="course_detail" id="special_type">กลุ่มวิชาภาษาต่างประเทศ</td><% ; break;%>
+                  <% case '6': %><td class="course_detail" id="special_type">Approved Electives</td><% ; break;%>
+                  <% default: %><td class="course_detail" id="special_type">ทั่วไป</td><% ; %>
+                <% } %>
+              </tr>
+              <tr>
+                <td class="course_title"><b>วิชาที่ต้องเรียนมาก่อน</b></td>
+                    <% if(!data[0].pre_course_no) {%>
+                      <td class="course_detail" id="prerequisite">-</td>
+                    <% } else { %>
+                      <td class="course_detail" id="prerequisite"><%= data[0].pre_course_no %></td>
+                    <% } %>
+              </tr>
+              <tr>
+                <td class="course_title"><b>รายละเอียดวิชา</b></td>
+                <td class="course_detail" id="course_detail"><%= data[0].course_detail %></td>
+              </tr>
+            </tbody>
+        </table>
+        <h4>เกรดของนิสิตที่เคยลงทะเบียนเรียน</h4>
+          <ul class="nav nav-tabs" role="tablist" id="myTab">
+            <li role="presentation" class="active"><a href="#graph-all" aria-controls="graph-all" role="tab" data-toggle="tab">ทั้งหมด</a></li>
+            <li role="presentation"><a href="#graph-st1" aria-controls="graph-st1" role="tab" data-toggle="tab">ปีล่าสุด</a></li>
+            <li role="presentation"><a href="#graph-st2" aria-controls="graph-st2" role="tab" data-toggle="tab">ปีที่แล้ว</a></li>
+          </ul>
+          <canvas id="myChart" width="400" height="200"></canvas>
+
+          <% } else {%>
+            <h1>ไม่พบข้อมูล</h1>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('common/view_end', {
+  jsFiles: ['course'],
+  externalJSURLs: [
+    'https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js',
+    'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'
+  ]
+}) %>

@@ -1,0 +1,43 @@
+<div class="student-brief-info">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <span class="title">รหัสนิสิต</span>
+      <span id="sid"><%= sid %></span>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <span class="title">ชื่อภาษาไทย</span>
+      <span><%= studentInfo.fname_th %> <%= studentInfo.lname_th %></span>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <span class="title">ชื่อภาษาอังกฤษ</span>
+      <span><%= studentInfo.fname_en %> <%= studentInfo.lname_en %></span>
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-pills nav-justified" role="tablist">
+  <% if (info === 'information') { %>
+  <li role="presentation" class="active"><a href="/student-info/<%= sid %>" >Information</a></li>
+  <% } else { %>
+  <li><a href="/student-info/<%= sid %>">Information</a></li>
+  <% } %>
+
+  <% if (info === 'enroll') { %>
+  <li role="presentation" class="active"><a href="/student-info/<%= sid %>/enroll">Enrollment</a></li>
+  <% } else { %>
+  <li role="presentation"><a href="/student-info/<%= sid %>/enroll">Enrollment</a></li>
+  <% } %>
+
+  <% if (info === 'indiv-activity') { %>
+  <li role="presentation" class="active"><a href="/student-info/<%= sid %>/indiv-activity">Activity</a></li>
+  <% } else { %>
+  <li role="presentation"><a href="/student-info/<%= sid %>/indiv-activity">Activity</a></li>
+  <% } %>
+
+  <% if (info === 'studying-analysis') { %>
+  <li role="presentation" class="active"><a href="/student-info/<%= sid %>/studying-analysis">Studying Analysis</a></li>
+  <% } else { %>
+  <li role="presentation"><a href="/student-info/<%= sid %>/studying-analysis">Studying Analysis</a></li>
+  <% } %>
+
+</ul>

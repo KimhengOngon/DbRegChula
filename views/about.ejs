@@ -1,0 +1,60 @@
+<%- include('common/view_start', {
+  title: 'About',
+  cssFiles: [],
+  navBarLocation: 'about'
+}) %>
+
+<%- include('common/header', {
+  heading: 'About',
+  subheading: 'เกี่ยวกับเว็บไซต์',
+  breadcrumb: [
+    'About'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-12 col-md-8">
+
+      <div class="page-header">
+        <h3>โครงการระบบฐานข้อมูลเพื่อการบริหารข้อมูลนิสิต <small>(Term Project)</small></h3>
+      </div>
+      <br>
+      <p style="font-size:18px;">เสนอ</p>
+      <p style="font-size:20px;">ผู้ช่วยศาสตราจารย์โปรดปราน บุณยพุกกณะ<p>
+      <br>
+      <p>โครงการนี้เป็นส่วนหนึ่งของรายวิชา 2110422 การออกแบบระบบจัดการฐานข้อมูล</p>
+      <p>ภาคการศึกษาปลาย ปีการศึกษา 2559</p>
+      <p>ภาควิชาวิศวกรรมคอมพิวเตอร์ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย</p>
+
+    </div>
+
+    <div class="col-xs-12 col-md-4">
+      <div class="page-header">
+        <h3>Developer</h3>
+      </div>
+      <div class="row">
+        <div class="col-xs-5 col-md-8">
+          <p>ชนาธิป เกรียงไกรเพชร</p>
+          <p>ชนาธิป แซ่เตีย</p>
+          <p>ณัฐพล รักษ์รัชตกุล</p>
+          <p>ณัฐวัฒน์ ประดุจเดชา</p>
+          <p>กษิดิศ เอี่ยมทอง</p>
+        </div>
+        <div class="col-xs-3 col-md-4">
+          <p>5730106921</p>
+          <p>5730108121</p>
+          <p>5730174521</p>
+          <p>5730185421</p>
+          <p>5731005321</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<%- include('common/view_end', {
+  jsFiles: ['manager-board']
+}) %>

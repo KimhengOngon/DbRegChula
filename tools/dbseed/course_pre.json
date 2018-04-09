@@ -1,0 +1,22 @@
+[{
+  "course_no": "5500112",
+  "pre_course_no": "5500111"
+}, {
+  "course_no": "2304184",
+  "pre_course_no": "2304183"
+}, {
+  "course_no": "2301108",
+  "pre_course_no": "2301107"
+}, {
+  "course_no": "2110215",
+  "pre_course_no": "2110211"
+}, {
+  "course_no": "2110211",
+  "pre_course_no": "2110101"
+}, {
+  "course_no": "2304108",
+  "pre_course_no": "2304107"
+}, {
+  "course_no": "2110352",
+  "pre_course_no": "2110201"
+}]

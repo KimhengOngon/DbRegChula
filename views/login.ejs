@@ -1,0 +1,43 @@
+<%- include('common/view_start', {
+  title: 'Login',
+  cssFiles: ['login'],
+  includeNavBar: false
+}) %>
+
+<div class="container">
+  <div class="row" id="pwd-container">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+      <h1 class="system-name">DBProject</h1>
+      <section class="login-form">
+        <form method="post" action="/login" role="login">
+          <h2>เข้าสู่ระบบ</h2>
+          <% if (isInvalidUsernamePassword) { %>
+          <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+            ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง
+            </div>
+          <% } %>
+          <% if (isTakenFromOtherPage) { %>
+          <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+            กรุณา login ก่อนเข้าสู่ระบบ
+            </div>
+          <% } %>
+          <div class="form-group">
+            <label for="username">ชื่อผู้ใช้</label>
+            <input type="text" class="form-control input-md" name="username" placeholder="ชื่อผู้ใช้">
+          </div>
+          <div class="form-group">
+            <label for="password">รหัสผ่าน</label>
+            <input type="password" class="form-control input-md" name="password" placeholder="รหัสผ่าน">
+          </div>
+          <button type="submit" class="btn btn-md btn-primary btn-block" style="height: 50px; margin-top: 30px">เข้าสู่ระบบ</button>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
+
+<%- include('common/view_end', {
+  includeFooter: false
+}) %>

@@ -1,0 +1,42 @@
+{
+  "name": "dbregchula",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run gulp:w\" \"npm run server:start\"",
+    "gulp:w": "gulp watch",
+    "server:start": "nodemon --ignore public_src/ --ignore public/ .",
+    "seed": "node ./tools/dbseed -if"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "bootstrap-sass": "~3.3.7",
+    "chance": "~1.0.6",
+    "chart.js": "~2.5.0",
+    "cookie-parser": "~1.4.3",
+    "datatables.net": "~1.10.15",
+    "datatables.net-bs": "~1.10.15",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "express-session": "~1.15.2",
+    "font-awesome": "~4.7.0",
+    "jquery": "~3.2.1",
+    "moment": "~2.18.1",
+    "morgan": "~1.8.1",
+    "mysql": "~2.13.0",
+    "passport": "~0.3.2",
+    "passport-local": "~1.0.0"
+  },
+  "devDependencies": {
+    "commander": "~2.9.0",
+    "concurrently": "~3.4.0",
+    "eslint": "~3.19.0",
+    "gulp": "~3.9.1",
+    "gulp-concat": "~2.6.1",
+    "gulp-plumber": "~1.1.0",
+    "gulp-sass": "~3.1.0",
+    "gulp-sourcemaps": "~2.6.0",
+    "nodemon": "~1.11.0",
+    "progress": "~2.0.0"
+  }
+}

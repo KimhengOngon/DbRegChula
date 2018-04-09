@@ -1,0 +1,73 @@
+<%- include('../common/view_start', {
+  title: 'Information',
+  cssFiles: ['student-info'],
+  externalCSSURLs: ['https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css'],
+  navBarLocation: 'student-info'
+}) %>
+
+<%- include('../common/header', {
+  heading: 'Information',
+  subheading: 'ข้อมูลของนิสิต',
+  breadcrumb: [
+    { text: 'Student Info', href: '/student-info' },
+    sid
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%- include('student_tab', { info: 'information' }) %>
+      <div class="row">
+          <div class="col-xs-12">
+            <h2>ข้อมูลของนิสิต</h2>
+            <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td class="info_title"><b>ชื่อ (ไทย)</b></td>
+                    <td class="info_detail"><%= studentInfo.fname_th %> <%= studentInfo.lname_th %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>ชื่อ (อังกฤษ)</b></td>
+                    <td class="info_detail"><%= studentInfo.fname_en %> <%= studentInfo.lname_en %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>ที่อยู่ (ไทย)</b></td>
+                    <td class="info_detail"><%= studentInfo.address_th %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>ที่อยู่ (อังกฤษ)</b></td>
+                    <td class="info_detail"><%= studentInfo.address_en %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>ชั้นปี</b></td>
+                    <td class="info_detail" id='year'><%= studentInfo.year %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>ปีที่เข้า</b></td>
+                    <td class="info_detail" id='ent_year'><%= studentInfo.ent_year %></td>
+                  </tr>
+                  <tr>
+                    <td class="info_title"><b>คะแนนความประพฤติ</b></td>
+                    <td class="info_detail"><%= studentInfo.behav_score %></td>
+                  </tr>
+                  <tr class="info_probation">
+                    <!-- <td><b>ติดโปร</b></td>
+                    <td>สูง</td> -->
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<%- include('../common/view_end', {
+  jsFiles: ['full_info'],
+  externalJSURLs: [
+    'https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js',
+    'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'
+  ]
+}) %>

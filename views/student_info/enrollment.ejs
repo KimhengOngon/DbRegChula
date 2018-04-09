@@ -1,0 +1,92 @@
+<%- include('../common/view_start', {
+  title: 'Enrollment',
+  cssFiles: ['student-info', 'enroll'],
+  externalCSSURLs: ['https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css'],
+  navBarLocation: 'student-info'
+}) %>
+
+<%- include('../common/header', {
+  heading: 'Enrollment',
+  subheading: 'ประวัติการลงทะเบียน',
+  breadcrumb: [
+    { text: 'Student Info', href: '/student-info' },
+    { text: sid, href: '/student-info/' + sid },
+    'Enrollment'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%- include('student_tab', { info: 'enroll' }) %>
+      <div class="row">
+          <div class="col-xs-12">
+            <h2>เกรดรวม</h2>
+            <ul class="nav nav-tabs nav-justified" role="tablist" data-ent="<%= ent_year %>">
+              <% for(let i = 1; i <= studentInfo.year; i++){ %>
+                <% if (i==1) {%>
+                  <li role="presentation" class="active"><a class="tab_semester" href="#home" aria-controls="home" role="tab" data-toggle="tab" data-year="<%= i + studentInfo.ent_year - 1 %>" data-semester="1">ปี 1 เทอม 1</a></li>
+                  <li role="presentation"><a class="tab_semester" href="#home" aria-controls="home" role="tab" data-toggle="tab" data-year="<%= i + studentInfo.ent_year - 1 %>" data-semester="2">ปี 1 เทอม 2</a></li>
+                <% } else { %>
+                  <li role="presentation"><a class="tab_semester" href="#home" aria-controls="home" role="tab" data-toggle="tab" data-year="<%= i + studentInfo.ent_year - 1 %>" data-semester="1">ปี <%= i %> เทอม 1</a></li>
+                  <li role="presentation"><a class="tab_semester" href="#home" aria-controls="home" role="tab" data-toggle="tab" data-year="<%= i + studentInfo.ent_year - 1 %>" data-semester="2">ปี <%= i %> เทอม 2</a></li>
+                <% } %>
+              <% } %>
+            </ul>
+            <table class="table">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>CA</th>
+                  <th>CG</th>
+                  <th>GPA</th>
+                  <th>CAX</th>
+                  <th>CGX</th>
+                  <th>GPAX</th>
+                  <th>GPX</th>
+                </tr>
+              </thead>
+              <tbody class="sum_grade_table">
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+    <div class="col-xs-12">
+      <h2>เกรดแต่ละวิชา</h2>
+      <table id="grade" class="table table-condensed table-hover table-striped">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Course No.</th>
+            <th>Course Title</th>
+            <th>Credit</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody class="grade_table">
+        </tbody>
+      </table>
+      <h2>ประวัติการลงทะเบียนเรียน</h2>
+      <table id="detail" class="table table-condensed table-hover table-striped">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Timestamp</th>
+            <th>Task</th>
+            <th>Course No.</th>
+            <th>Course Title</th>
+            <th>Credit</th>
+          </tr>
+        </thead>
+        <tbody class="detail_table">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<%- include('../common/view_end', {
+  jsFiles: ['enroll'],
+  externalJSURLs: [
+    'https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js',
+    'https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'
+  ]
+}) %>

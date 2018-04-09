@@ -1,0 +1,351 @@
+[{
+  "course_no": "2103106",
+  "shortname": "ENG DRAWING",
+  "credit": 3,
+  "name_th": "การเขียนแบบวิศวกรรม",
+  "name_en": "ENGINEERING DRAWING",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2301107",
+  "shortname": "CALCULUS I",
+  "credit": 3,
+  "name_th": "แคลคูลัส 1",
+  "name_en": "CALCULUS I",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2302127",
+  "shortname": "GEN CHEM",
+  "credit": 3,
+  "name_th": "วิชาเคมีทั่วไป",
+  "name_en": "GENERAL CHEMISTRY",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2302163",
+  "shortname": "GEN CHEM LAB",
+  "credit": 1,
+  "name_th": "ปฏิบัติการเคมีทั่วไป",
+  "name_en": "GENERAL CHEMISTRY LABORATORY",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "2304107",
+  "shortname": "GEN PHYS I",
+  "credit": 3,
+  "name_th": "ฟิสิกส์ทั่วไป 1",
+  "name_en": "GENERAL PHYSICS I",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2304183",
+  "shortname": "GEN PHYS LAB I",
+  "credit": 1,
+  "name_th": "ปฏิบัติการฟิสิกส์ทั่วไป 1",
+  "name_en": "GENERAL PHYSICS LABOLATORY I",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "5500111",
+  "shortname": "EXP ENG I",
+  "credit": 3,
+  "name_th": "ภาษาอังกฤษเพื่อการเรียนรู้ในชีวิตจริง 1",
+  "name_en": "EXPERIENTIAL ENGLISH I",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110101",
+  "shortname": "COMP PROG",
+  "credit": 3,
+  "name_th": "การทำโปรแกรมคอมพิวเตอร์",
+  "name_en": "COMPUTER PROGRAMMING",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2301108",
+  "shortname": "CALCULUS II",
+  "credit": 3,
+  "name_th": "แคลคูลัส 2",
+  "name_en": "CALCULUS II",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2304108",
+  "shortname": "GEN PHYS II",
+  "credit": 3,
+  "name_th": "ฟิสิกส์ทั่วไป 2",
+  "name_en": "GENERAL PHYSICS II",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2304184",
+  "shortname": "GEN PHYS LAB II",
+  "credit": 1,
+  "name_th": "ปฏิบัติการฟิสิกส์ทั่วไป 2",
+  "name_en": "GENERAL PHYSICS LABORATORY II",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "5500112",
+  "shortname": "EXP ENG II",
+  "credit": 3,
+  "name_th": "ภาษาอังกฤษเพื่อการเรียนรู้ในชีวิตจริง 2",
+  "name_en": "EXPERIENTIAL ENGLISH II",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110200",
+  "shortname": "DISCRETE STRUC",
+  "credit": 3,
+  "name_th": "โครงสร้างดิสครีต",
+  "name_en": "DISCRETE STRUCTURES",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110215",
+  "shortname": "PROG METH I",
+  "credit": 3,
+  "name_th": "วิธีวิทยาการทำโปรแกรม 1",
+  "name_en": "PROGRAMMING METHODOLOGY I",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110221",
+  "shortname": "COMP ENG ESS",
+  "credit": 3,
+  "name_th": "แก่นวิศวกรรมคอมพิวเตอร์",
+  "name_en": "COMPUTER ENGINEERING ESSENTIALS",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110251",
+  "shortname": "DIG COMP LOGIC",
+  "credit": 3,
+  "name_th": "ตรรกศาสตร์ของดิจิตอลคอมพิวเตอร์",
+  "name_en": "DIGITAL COMPUTER LOGIC",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110253",
+  "shortname": "COMP ELEC INTF",
+  "credit": 3,
+  "name_th": "อิเล็กทรอนิกส์คอมพิวเตอร์และการเชื่อมต่อ",
+  "name_en": "COMPUTER ELECTRONICS AND INTERFACING",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110263",
+  "shortname": "DIG LOGIC LAB I",
+  "credit": 1,
+  "name_th": "การปฏิบัติการทางตรรกศาสตร์ของดิจิตอลคอมพิวเตอร์ 1",
+  "name_en": "DIGITAL COMPUTER LOGIC LABORATORY I",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "2308354",
+  "shortname": "STRATEGY OF LIFE",
+  "credit": 3,
+  "name_th": "-",
+  "name_en": "THE STRATEGY OF LIFE",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "2"
+}, {
+  "course_no": "0201281",
+  "shortname": "TEAM/ORG DEV",
+  "credit": 3,
+  "name_th": "การพัฒนาคณะทำงานและองค์กร",
+  "name_en": "TEAM AND ORGANIZATION DEVELOPMENT",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "4"
+}, {
+  "course_no": "2110201",
+  "shortname": "COMP ENG MATH",
+  "credit": 3,
+  "name_th": "คณิตศาสตร์วิศวกรรมคอมพิวเตอร์",
+  "name_en": "COMPUTER ENGINEERING MATHEMATICS",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110211",
+  "shortname": "INTRO DATA STRUCT",
+  "credit": 3,
+  "name_th": "ความรู้เบื้องต้นเกี่ยวกับโครงสร้างข้อมูล",
+  "name_en": "INTRODUCTION TO DATA STRUCTURES",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110254",
+  "shortname": "DIG DESIGN VER",
+  "credit": 3,
+  "name_th": "การออกแบบและการทวนสอบดิจิตอล",
+  "name_en": "DIGITAL DESIGN AND VERIFICATION",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "6"
+}, {
+  "course_no": "2110265",
+  "shortname": "DIG DESIGN LAB I",
+  "credit": 1,
+  "name_th": "ปฏิบัติการออกแบบและการทวนสอบดิจิตอล 1",
+  "name_en": "DIGITAL DESIGN AND VERIFICATION LABORATORY I",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "2603284",
+  "shortname": "STAT PHYS SCIENCE",
+  "credit": 3,
+  "name_th": "สถิติสำหรับวิทยาศาสตร์กายภาพ",
+  "name_en": "STATISTICS FOR PHYSICAL SCIENCE",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "5500208",
+  "shortname": "COM PRES SKIL",
+  "credit": 3,
+  "name_th": "ทักษะการสื่อสารและการนำเสนอผลงาน",
+  "name_en": "COMMUNICATION AND PRESENTATION SKILLS",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110313",
+  "shortname": "OS SYS PROG",
+  "credit": 3,
+  "name_th": "ระบบปฏิบัติการและโปรแกรมระบบ",
+  "name_en": "OPERATING SYSTEMS AND SYSTEM PROGRAMS",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "6"
+}, {
+  "course_no": "2110316",
+  "shortname": "PROG LANG PRIN",
+  "credit": 3,
+  "name_th": "หลักการของภาษาการทำโปรแกรม",
+  "name_en": "PROGRAMMING LANGUAGES PRINCIPLES",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110327",
+  "shortname": "ALGORITHM DESIGN",
+  "credit": 3,
+  "name_th": "การออกแบบอัลกอริทึม",
+  "name_en": "ALGORITHM DESIGN",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "6"
+}, {
+  "course_no": "2110352",
+  "shortname": "COMP SYS ARCH",
+  "credit": 3,
+  "name_th": "สถาปัตยกรรมระบบคอมพิวเตอร์",
+  "name_en": "COMPUTER SYSTEM ARCHITECTURES",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "0"
+}, {
+  "course_no": "2110363",
+  "shortname": "HW SYN LAB I",
+  "credit": 1,
+  "name_th": "ปฏิบัติการสังเคราะห์ฮาร์ดแวร์ 1",
+  "name_en": "HARDWARE SYNTHESIS LABORATORY I",
+  "subcredit_1": 0,
+  "subcredit_2": 1,
+  "subcredit_3": 0,
+  "special_type": "0"
+}, {
+  "course_no": "2110391",
+  "shortname": "INDIV COMP III",
+  "credit": 3,
+  "name_th": "เอกัตศึกษาทางวิศวกรรมคอมพิวเตอร์ 3",
+  "name_en": "INDIVIDUAL STUDY IN COMPUTER ENGINEERING III",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "6"
+}, {
+  "course_no": "2110482",
+  "shortname": "HIGH TECH ENT",
+  "credit": 3,
+  "name_th": "การเป็นผู้ประกอบการเทคโนโลยีขั้นสูง",
+  "name_en": "HIGH TECHNOLOGY ENTREPRENEURSHIP",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "6"
+}, {
+  "course_no": "2200226",
+  "shortname": "FOLK MUS TH SOC",
+  "credit": 3,
+  "name_th": "ดนตรีพื้นเมืองในสังคมไทย",
+  "name_en": "FOLK MUSIC IN THAI SOCIETY",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "3"
+}, {
+  "course_no": "0201211",
+  "shortname": "MEDITAT LIFE DEV",
+  "credit": 3,
+  "name_th": "สมาธิเพื่อพัฒนาชีวิต",
+  "name_en": "MEDITATION FOR LIFE DEVILOPMENT",
+  "subcredit_1": 3,
+  "subcredit_2": 0,
+  "subcredit_3": 6,
+  "special_type": "1"
+} ]

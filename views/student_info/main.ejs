@@ -1,0 +1,65 @@
+<%- include('../common/view_start', {
+  title: 'Student Info',
+  cssFiles: [],
+  externalCSSURLs: [],
+  navBarLocation: 'student-info'
+}) %>
+
+<%- include('../common/header', {
+  heading: 'Student Info',
+  subheading: 'ข้อมูลของนักเรียน',
+  breadcrumb: [
+    'Student Info'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-5 col-md-4">
+      <%- include('search_student') %>
+    </div>
+    <div class="col-xs-12 col-sm-7 col-md-8">
+      <section class="search-result">
+        <% if (searched) { %>
+          <h2>Result</h2>
+          <ul>
+          <% if (searchOptions.sid.length > 0) { %>
+            <li>ID: <%= searchOptions.sid %></li>
+          <% } if (searchOptions.sfname.length > 0) { %>
+            <li>First Name: <%= searchOptions.sfname %></li>
+          <% } if (searchOptions.slname.length > 0) { %>
+            <li>Last Name: <%= searchOptions.slname %></li>
+          <% } %>
+          </ul>
+
+          <table class="table table-striped" id="search_result">
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Year</th>
+                <th>Behavior Score</th>
+                <th>Full Info</th>
+              </tr>
+            </thead>
+          </table>
+
+          <script>
+            var searchOptions = <%- JSON.stringify(searchOptions) %>;
+          </script>
+
+        <% } else {%>
+          <p class="no-search-text">
+            Please search using the search form on the left.
+          </p>
+        <% } %>
+      </section>
+    </div>
+  </div>
+</div>
+
+<%- include('../common/view_end', {
+  jsFiles: ['data-table-language', 'student-info-search'],
+  externalJSURLs: []
+}) %>

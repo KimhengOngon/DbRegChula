@@ -1,0 +1,125 @@
+/* *********  widgets  *************************************** */
+.widget_summary {
+  width: 100%;
+  display: inline-flex;
+}
+.widget_summary .w_left {
+  float: left;
+  text-align: left;
+}
+.widget_summary .w_center {
+  float: left;
+}
+.widget_summary .w_right {
+  float: left;
+  text-align: right;
+}
+.widget_summary .w_right span {
+  font-size: 20px;
+}
+.w_20 {
+  width: 20%
+}
+.w_25 {
+  width: 25%
+}
+.w_55 {
+  width: 55%
+}
+
+/* *********  Graph  *************************************** */
+.x_panel {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 17px;
+  display: inline-block;
+  background: #fff;
+
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  opacity: 1;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  -webkit-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.x_content {
+  padding: 0 5px 6px;
+  position: relative;
+  width: 100%;
+  float: left;
+  clear: both;
+  margin-top: 5px;
+}
+.fixed_height_320 {
+  height: 320px;
+}
+.fixed_height_390 {
+  height: 390px;
+}
+.fixed_height_200 {
+  height: 200px;
+}
+
+/* *********  Overall Stat  ******************************* */
+.stat-box-blue{
+  background-image: url("/static/img/stat-box-blue.png");
+  background-repeat: no-repeat;
+}
+.bg-color-green {
+background-color: #fff;
+color: #5cb85c;
+}
+.bg-color-blue {
+background-color: #fff;
+color: #4CB1CF
+}
+.bg-color-red {
+background-color: #fff;
+color:#F0433D;
+}
+.bg-color-brown {
+background-color: #fff;
+color:#f0ad4e;
+}
+.back-footer-green {
+background-color: #5cb85c;
+color:#fff;
+border-top: 0px solid #fff;
+}
+.back-footer-red {
+background-color: #F0433D;
+color:#fff;
+border-top: 0px solid #fff;
+}
+.back-footer-blue {
+background-color: #4CB1CF;
+color:#fff;
+border-top: 0px solid #fff;
+}
+.back-footer-brown {
+background-color: #f0ad4e;
+color:#fff;
+border-top: 0px solid #fff;
+}
+.no-boder {
+    border:1px solid #f3f3f3;
+}
+.center-row{
+  margin: 0 auto;
+  width: 85%;
+}
+.h3-reduced-margin{
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.header-box{
+  background-color: #e5ebf2;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  //border:3px solid #2c3e50;
+}

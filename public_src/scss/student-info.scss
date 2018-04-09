@@ -1,0 +1,13 @@
+@import 'basis';
+
+.student-brief-info {
+  margin-bottom: 10px;
+  border: 1px solid $color-slate;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  .title {
+    font-weight: bold;
+    margin-right: 20px;
+  }
+}

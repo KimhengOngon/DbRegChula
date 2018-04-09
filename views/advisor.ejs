@@ -1,0 +1,475 @@
+<%- include('common/view_start', {
+  title: 'Advisor',
+  cssFiles: ['advisor'],
+  navBarLocation: 'advisor'
+}) %>
+
+  <%- include('common/header', {
+  heading: 'Advisor',
+  subheading: 'อาจารย์ที่ปรึกษา',
+  breadcrumb: [
+    'Advisor'
+  ]
+}) %>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-12 col-md-12">
+          <div style="position: absolute; left: 165px; margin-top: - 190px ">
+            <h3><%= user.display_name %></h3>
+            <p style="font-size: 120%">คณะวิศวกรรมศาสตร์ สาขาวิศวกรรมคอมพิวเตอร์</p>
+
+          </div>
+          <img src="/static/img/teacher.png" style=" height: 120px; margin-top: -3px">
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <table class="table" id="summary_table">
+            <h3>สถานะนิสิตทั้งหมด</h3>
+            <thead>
+              <tr>
+                <th>ชั้นปั</th>
+                <th>จำนวน</th>
+                <th>ติดโปรสูง</th>
+                <th>ติดโปรต่ำ</th>
+                <th>ไม่เรียนในเทอมนี้</th>
+              </tr>
+            </thead>
+            <tbody class="year_label">
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-xs-12 col-md-7">
+          <ul class="nav nav-tabs" role="tablist" id="myTab">
+            <li role="presentation" class="active"><a href="#graph-all" aria-controls="graph-all" role="tab" data-toggle="tab">นิสิตทั้งหมด</a></li>
+            <li role="presentation"><a href="#graph-st1" aria-controls="graph-st1" role="tab" data-toggle="tab">ติดโปรสูง</a></li>
+            <li role="presentation"><a href="#graph-st2" aria-controls="graph-st2" role="tab" data-toggle="tab">ติดโปร</a></li>
+            <li role="presentation"><a href="#graph-st3" aria-controls="graph-st3" role="tab" data-toggle="tab">ไม่เรียนในเทอมนี้</a></li>
+          </ul>
+          <canvas id="nisit-chart"></canvas>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>นิสิตในความดูแล</h3>
+          <ul class="nav nav-tabs" role="tablist" id="myTab">
+            <li class="active"><a href="#yrall" aria-controls="yrall" role="tab" data-toggle="tab">ทั้งหมด</a></li>
+            <li><a href="#yr1" aria-controls="yr1" role="tab" data-toggle="tab">ปี1</a></li>
+            <li><a href="#yr2" aria-controls="yr2" role="tab" data-toggle="tab">ปี2</a></li>
+            <li><a href="#yr3" aria-controls="yr3" role="tab" data-toggle="tab">ปี3</a></li>
+            <li><a href="#yr4" aria-controls="yr4" role="tab" data-toggle="tab">ปี4</a></li>
+            <li><a href="#yr5" aria-controls="yr5" role="tab" data-toggle="tab">ปีอื่นๆ</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div id="yrall" class="tab-pane fade in active">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < tab1.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= tab1[i].sid %></td>
+                      <td><%= tab1[i].fname_th + ' ' + tab1[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - tab1[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= tab1[i].f_name %></td>
+                      <td><%= tab1[i].d_name %></td>
+                      <td><%= tab1[i].m_name %></td>
+                      <% if (tab1[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= tab1[i].GPAX.toFixed(2) %></td>
+                      <% } else if (tab1[i].GPAX >= 1.5 && tab1[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= tab1[i].GPAX.toFixed(2) %></td>
+                      <% } else if (tab1[i].GPAX >= 1.8 && tab1[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= tab1[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= tab1[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= tab1[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= tab1[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= tab1[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= tab1.length %> คน</p>
+            </div>
+
+            <div id="yr1" class="tab-pane fade">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < y1t.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= y1t[i].sid %></td>
+                      <td><%= y1t[i].fname_th + ' ' + y1t[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - y1t[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= y1t[i].f_name %></td>
+                      <td><%= y1t[i].d_name %></td>
+                      <td><%= y1t[i].m_name %></td>
+                       <% if (y1t[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= y1t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y1t[i].GPAX >= 1.5 && y1t[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= y1t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y1t[i].GPAX >= 1.8 && y1t[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= y1t[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= y1t[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= y1t[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= y1t[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= y1t[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= y1t.length %> คน</p>
+            </div>
+
+            <div id="yr2" class="tab-pane fade">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < y2t.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= y2t[i].sid %></td>
+                      <td><%= y2t[i].fname_th + ' ' + y2t[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - y2t[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= y2t[i].f_name %></td>
+                      <td><%= y2t[i].d_name %></td>
+                      <td><%= y2t[i].m_name %></td>
+                       <% if (y2t[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= y2t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y2t[i].GPAX >= 1.5 && y2t[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= y2t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y2t[i].GPAX >= 1.8 && y2t[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= y2t[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= y2t[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= y2t[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= y2t[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= y2t[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= y2t.length %> คน</p>
+            </div>
+
+            <div id="yr3" class="tab-pane fade">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < y3t.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= y3t[i].sid %></td>
+                      <td><%= y3t[i].fname_th + ' ' + y3t[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - y3t[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= y3t[i].f_name %></td>
+                      <td><%= y3t[i].d_name %></td>
+                      <td><%= y3t[i].m_name %></td>
+                      <% if (y3t[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= y3t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y3t[i].GPAX >= 1.5 && y3t[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= y3t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y3t[i].GPAX >= 1.8 && y3t[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= y3t[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= y3t[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= y3t[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= y3t[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= y3t[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= y3t.length %> คน</p>
+            </div>
+
+            <div id="yr4" class="tab-pane fade">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < y4t.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= y4t[i].sid %></td>
+                      <td><%= y4t[i].fname_th + ' ' + y4t[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - y4t[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= y4t[i].f_name %></td>
+                      <td><%= y4t[i].d_name %></td>
+                      <td><%= y4t[i].m_name %></td>
+                      <% if (y4t[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= y4t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y4t[i].GPAX >= 1.5 && y4t[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= y4t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y4t[i].GPAX >= 1.8 && y4t[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= y4t[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= y4t[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= y4t[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= y4t[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= y4t[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= y4t.length %> คน</p>
+            </div>
+
+            <div id="yr5" class="tab-pane fade">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>รหัสนิสิต</th>
+                    <th>ชื่อ</th>
+                    <th>ชั้นปี</th>
+                    <th>คณะ</th>
+                    <th>ภาควิชา</th>
+                    <th>สาขา</th>
+                    <th>GPAX</th>
+                    <th>คะแนนความประพฤติ</th>
+                    <th></th>
+                    <th>Full Info</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% for (let i = 0; i < y5t.length; i++) { %>
+                    <tr>
+                      <th scope="row"><%= i + 1 %></th>
+                      <td><%= y5t[i].sid %></td>
+                      <td><%= y5t[i].fname_th + ' ' + y5t[i].lname_th %></td>
+                      <td><%= new Date().getFullYear() - y5t[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                      <td><%= y5t[i].f_name %></td>
+                      <td><%= y5t[i].d_name %></td>
+                      <td><%= y5t[i].m_name %></td>
+                      <% if (y5t[i].GPAX < 1.5) { %>
+                        <td style="color: #acbdb5"><%= y5t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y5t[i].GPAX >= 1.5 && y5t[i].GPAX < 1.8) { %>
+                        <td style="color: #f4536b"><%= y5t[i].GPAX.toFixed(2) %></td>
+                      <% } else if (y5t[i].GPAX >= 1.8 && y5t[i].GPAX < 2) { %>
+                        <td style="color: #f0b71e"><%= y5t[i].GPAX.toFixed(2) %></td>
+                      <% } else { %>
+                        <td><%= y5t[i].GPAX.toFixed(2) %></td>
+                      <% } %>
+                      <td>
+                        <div class="progress" style="margin-bottom: 1px;">
+                          <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:<%= y5t[i].behav_score %>%;"></div>
+                        </div>
+                      </td>
+                      <td><%= y5t[i].behav_score %></td>
+                      <td><a href="http://localhost:3000/student-info/<%= y5t[i].sid %>">Open</a></td>
+                    </tr>
+                  <% } %>
+                </tbody>
+              </table>
+              <p><b>ทั้งหมด:</b> <%= y5t.length %> คน</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <table class="table">
+            <h3>นิสิตที่ไม่สามารถมาเรียนได้</h3>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>รหัสนิสิต</th>
+                <th>ชื่อ</th>
+                <th>ชัั้นปี</th>
+                <th>ตั้งแต่</th>
+                <th>ถึงวันที่</th>
+                <th>สาเหตุ</th>
+                <th>รายละเอียด</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < tab2.length; i++) { %>
+                <tr>
+                  <th scope="row"><%= i + 1 %></th>
+                  <td><%= tab2[i].sid %></td></td>
+                  <td><%= tab2[i].fname_th + ' ' + tab2[i].lname_th %></td>
+                  <td><%= new Date().getFullYear() - tab2[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                  <td><%= moment(tab2[i].start_date).locale('th').format('LL') %></td>
+                  <td><%= moment(tab2[i].end_date).locale('th').format('LL') %></td>
+                  <td><%= tab2[i].cause %></td>
+                  <td><%= tab2[i].description %> </div></td>
+                </tr>
+              <% } %>
+            </tbody>
+          </table>
+
+          <p><b>ทั้งหมด:</b> <%= tab2.length %> คน</p>
+          <hr>
+                <div class="panel panel-default" style="cursor: pointer; color: #f4f4f4">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <div data-toggle="collapse" href="#collapseOne">
+                        <div style="text-align:center">แสดง/ซ่อน ประวัติการขาดเรียนที่ผ่านมา</div>
+                      </div>
+                    </h4>
+                  </div>
+                </div>
+
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>รหัสนิสิต</th>
+                            <th>ชื่อ</th>
+                            <th>ชัั้นปี</th>
+                            <th>ตั้งแต่</th>
+                            <th>ถึงวันที่</th>
+                            <th>สาเหตุ</th>
+                            <th>รายละเอียด</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% for (let i = 0; i < tab3.length; i++) { %>
+                            <tr>
+                              <th scope="row"><%= i + 1 %></th>
+                              <td><%= tab3[i].sid %></td></td>
+                              <td><%= tab3[i].fname_th + ' ' + tab3[i].lname_th %></td>
+                              <td><%= new Date().getFullYear() - tab3[i].ent_year + Math.floor(new Date().getMonth()/12 + 4/12) %></td>
+                              <td><%= moment(tab3[i].start_date).locale('th').format('LL') %></td>
+                              <td><%= moment(tab3[i].end_date).locale('th').format('LL') %></td>
+                              <td><%= tab3[i].cause %></td>
+                              <td><%= tab3[i].description %> </div></td>
+                            </tr>
+                          <% } %>
+                        </tbody>
+                    </table>
+                </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var y1 = <%- JSON.stringify(y1t) %>;
+      var y2 = <%- JSON.stringify(y2t) %>;
+      var y3 = <%- JSON.stringify(y3t) %>;
+      var y4 = <%- JSON.stringify(y4t) %>;
+      var y5 = <%- JSON.stringify(y5t) %>;
+      var abs = <%- JSON.stringify(tab2) %>;
+    </script>
+
+    <%- include('common/view_end', {
+  jsFiles: ['advisor']
+}) %>

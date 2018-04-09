@@ -1,0 +1,14 @@
+@import 'basis';
+
+.navbar-inverse {
+  box-shadow: 0 2px 5px transparentize($color-primary, 0.6);
+  .navbar-nav {
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        border-bottom: 2px solid $color-secondary;
+      }
+    }
+  }
+}

@@ -1,0 +1,247 @@
+<%- include('../common/view_start', {
+  title: 'Studying Analysis',
+  cssFiles: ['student-info'],
+  navBarLocation: 'student-info'
+}) %>
+
+<%- include('../common/header', {
+  heading: 'Studying Analysis',
+  subheading: 'วิเคราะห์การเรียน',
+  breadcrumb: [
+    { text: 'Student Info', href: '/student-info' },
+    { text: sid, href: '/student-info/' + sid },
+    'Studying Analysis'
+  ]
+}) %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <%- include('student_tab', { info: 'studying-analysis' }) %>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>วิชาบังคับที่ยังเรียนไม่ผ่าน</h3>
+          <% if (strugglingCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of strugglingCourseDetail) { %>
+              <tr class="danger">
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td><%= course.grade %></td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= strugglingCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+
+          <hr>
+
+          <h3>วิชาที่เรียนผ่านแล้ว</h3>
+          <% if (passedCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of passedCourseDetail) { %>
+              <tr>
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td><%= course.grade %></td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= passedCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+
+          <hr>
+
+          <h3>วิชาบังคับที่ยังไม่เคยเรียน</h3>
+          <% if (remainedCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of remainedCourseDetail) { %>
+              <tr>
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td>-</td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= remainedCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+
+          <hr>
+
+          <h3>วิชา Approved Elective</h3>
+          <% if (approveCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of approveCourseDetail) { %>
+              <tr>
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td><%= course.grade %></td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= approveCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+          <p>จำนวนหน่วยกิตวิชา approve ที่เรียนผ่านแล้ว: <%= requiredApprove %></p>
+
+          <hr>
+
+          <h3>วิชา General Education</h3>
+          <% if (genedCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of genedCourseDetail) { %>
+              <tr>
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td><%= course.grade %></td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= genedCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+
+          <hr>
+
+          <h3>วิชาภาษาต่างประเทศ</h3>
+          <% if (langCourseDetail.length === 0) { %>
+          <p>ไม่มี</p>
+          <% } else { %>
+          <table class="table table-condensed table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Course No.</th>
+                <th>Course Title</th>
+                <th>Credit</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (const course of langCourseDetail) { %>
+              <tr>
+                <td><%= course.course_no %></td>
+                <td><%= course.course_name %></td>
+                <td><%= course.credit %></td>
+                <td><%= course.grade %></td>
+              </tr>
+              <% } %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td>หน่วยกิตรวม</td>
+                <td><%= langCourseCreditSum %></td>
+                <td></td>
+              </tr>
+            </tfoot>
+          </table>
+          <% } %>
+          <p>จำนวนหน่วยกิตวิชาภาษาต่างประเทศที่ต้องเรียน: <%= requiredLang %></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../common/view_end', {
+  jsFiles: ['']
+}) %>

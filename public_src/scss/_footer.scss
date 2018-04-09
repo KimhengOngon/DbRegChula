@@ -1,0 +1,23 @@
+@import 'basis';
+
+$footer-height: 50px;
+
+.wrapper {
+  min-height: 100%;
+  margin-bottom: -$footer-height;
+  padding-bottom: 30px;
+
+  &:after {
+    content: "";
+    height: $footer-height;
+    display: block;
+  }
+}
+
+footer {
+  padding-top: $footer-height / 2 - 10px;
+  font-size: 14px;
+  height: $footer-height;
+  background: $color-slate;
+  color: darken($color-slate, 30%);
+}

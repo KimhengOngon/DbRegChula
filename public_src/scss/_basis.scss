@@ -1,0 +1,28 @@
+$icon-font-path: '/static/fonts/';
+$fa-font-path: '/static/fonts/';
+$font-family-sans-serif: 'Kanit', sans-serif;
+
+$color-primary: #2C3E50;
+$color-secondary: desaturate(#E74C3C, 5%);
+$color-tertiary: #3498DB;
+$color-slate: #ECF0F1;
+
+$font-size-base: 15px;
+
+$brand-primary: $color-secondary;
+
+$input-border-focus: lighten($color-secondary, 10%);
+$border-radius-base: 3px;
+$navbar-inverse-color: $color-primary;
+$breadcrumb-padding-vertical: 0;
+$breadcrumb-padding-horizontal: 0;
+$breadcrumb-bg: none; // lighten($color-slate, 10%);
+$navbar-inverse-bg: $color-primary;
+$navbar-inverse-border: $color-primary;
+$navbar-inverse-brand-color: #FFF;
+$navbar-inverse-link-color: lighten($color-primary, 50%);
+$navbar-margin-bottom: 0;
+$grid-float-breakpoint: 1000px;
+
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
